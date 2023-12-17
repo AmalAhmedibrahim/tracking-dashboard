@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card__header">
       <h3 class="card__header--title">
-        {{ cardData.tittle }}
+        {{ cardData.title | truncate : 50 }}
       </h3>
       <span class="material-symbols-outlined card__header--icon">
         more_horiz
@@ -14,7 +14,7 @@
       >
       <div class="card__body__state">
         <span class="card__body__state--disc">
-          {{ cardData.disc }}
+          {{ cardData.disc | truncate : 70 }}
         </span>
         <div class="card__body__state--type">
           <span>{{ cardData.statsType }}</span>

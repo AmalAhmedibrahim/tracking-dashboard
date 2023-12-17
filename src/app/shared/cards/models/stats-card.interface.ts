@@ -1,6 +1,6 @@
 export interface StatsCard {
   color: string;
-  tittle: string;
+  title: string;
   total: string;
   currency: string;
   disc: string;

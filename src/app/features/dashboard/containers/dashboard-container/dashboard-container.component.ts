@@ -11,7 +11,20 @@ import { StatsCard } from 'src/app/shared/cards/models/stats-card.interface';
 export class DashboardContainerComponent implements OnInit {
   profileCard: ProfileCard;
   statsCard: StatsCard[] = [];
+  colors: string[];
   constructor(private productsService: ProductsService) {
+    this.colors = [
+      'var(--orange)',
+      'var(--blue-200)',
+      'var(--pink)',
+      'var(--orange)',
+      'var(--blue-200)',
+      'var(--green)',
+      'var(--dark-purple)',
+      'var(--yellow)',
+      'var(--green)',
+      'var(--dark-purple)',
+    ];
     this.profileCard = {
       text: 'Report for',
       title: 'Best Sales',
@@ -22,100 +35,6 @@ export class DashboardContainerComponent implements OnInit {
         { value: 'Monthly', active: false },
       ],
     };
-
-    this.statsCard = [
-      {
-        color: 'var(--orange)',
-        tittle: `men's clothing`,
-        total: '109.95',
-        currency: '$',
-        disc: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-        statsType: 'InStore',
-        statsAmount: '120',
-      },
-      {
-        color: 'var(--blue-200)',
-        tittle: `men's clothing`,
-        total: '109.95',
-        currency: '$',
-        disc: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-        statsType: 'InStore',
-        statsAmount: '120',
-      },
-      {
-        color: 'var(--pink)',
-        tittle: `men's clothing`,
-        total: '109.95',
-        currency: '$',
-        disc: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-        statsType: 'InStore',
-        statsAmount: '120',
-      },
-      {
-        color: 'var(--orange)',
-        tittle: `men's clothing`,
-        total: '109.95',
-        currency: '$',
-        disc: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-        statsType: 'InStore',
-        statsAmount: '120',
-      },
-      {
-        color: 'var(--blue-200)',
-        tittle: `men's clothing`,
-        total: '109.95',
-        currency: '$',
-        disc: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-        statsType: 'InStore',
-        statsAmount: '120',
-      },
-
-      {
-        color: 'var(--green)',
-        tittle: `men's clothing`,
-        total: '109.95',
-        currency: '$',
-        disc: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-        statsType: 'InStore',
-        statsAmount: '120',
-      },
-      {
-        color: 'var(--dark-purple)',
-        tittle: `men's clothing`,
-        total: '109.95',
-        currency: '$',
-        disc: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-        statsType: 'InStore',
-        statsAmount: '120',
-      },
-      {
-        color: 'var(--yellow)',
-        tittle: `men's clothing`,
-        total: '109.95',
-        currency: '$',
-        disc: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-        statsType: 'InStore',
-        statsAmount: '120',
-      },
-      {
-        color: 'var(--green)',
-        tittle: `men's clothing`,
-        total: '109.95',
-        currency: '$',
-        disc: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-        statsType: 'InStore',
-        statsAmount: '120',
-      },
-      {
-        color: 'var(--dark-purple)',
-        tittle: `men's clothing`,
-        total: '109.95',
-        currency: '$',
-        disc: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-        statsType: 'InStore',
-        statsAmount: '120',
-      },
-    ];
   }
 
   ngOnInit(): void {
@@ -124,6 +43,18 @@ export class DashboardContainerComponent implements OnInit {
       .pipe(take(1))
       .subscribe((products) => {
         console.log(products);
+
+        products.forEach((p, index) => {
+          this.statsCard.push({
+            color: this.colors[index],
+            title: p.category,
+            total: p.price,
+            currency: '$',
+            disc: p.title,
+            statsType: 'InStore',
+            statsAmount: '' + p.rating.count,
+          });
+        });
       });
   }
 }
