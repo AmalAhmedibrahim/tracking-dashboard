@@ -1,5 +1,5 @@
 .container {
-  width: 13.9375rem;
+  width: 15.9375rem;
   height: 12.4375rem;
   border-radius: 0.9375rem;
   display: flex;
@@ -33,6 +33,7 @@
       }
       &__state {
         display: flex;
+        align-items: center;
         &--disc {
           font-size: 0.75rem;
           font-weight: 400;
