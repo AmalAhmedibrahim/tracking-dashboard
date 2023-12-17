@@ -1,0 +1,11 @@
+<div class="dashboard">
+  <app-profile-card [cardData]="profileCard"></app-profile-card>
+  <div class="stats-cards">
+    <ng-container *ngFor="let card of statsCard">
+      <app-stats-card
+        [cardData]="card"
+        class="stats-cards__card"
+      ></app-stats-card>
+    </ng-container>
+  </div>
+</div>

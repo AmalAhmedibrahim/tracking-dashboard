@@ -1,0 +1,13 @@
+.dashboard {
+  display: flex;
+  padding: 1rem;
+  .stats-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    &__card {
+      margin: 0 0 1rem 0.1rem;
+    }
+  }
+}

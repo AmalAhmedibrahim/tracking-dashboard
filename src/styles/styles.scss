@@ -1,0 +1,19 @@
+@import "variables/colors.scss";
+@import "fonts/fonts.scss";
+
+html {
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--primary);
+  color: var(--font-color);
+  font-family: "Rubik";
+}
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}

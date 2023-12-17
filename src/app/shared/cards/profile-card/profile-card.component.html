@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card__header">
+    <img class="card__header--img" [src]="cardData.imgSrc" />
+    <div class="card__header__text">
+      <span class="card__header__text--sub">{{ cardData.text }}</span>
+      <h4 class="card__header__text--title">{{ cardData.title }}</h4>
+    </div>
+  </div>
+  <div class="card__body">
+    <div class="card__items">
+      <ng-container *ngFor="let item of cardData.items">
+        <span
+          class="card__items__item"
+          [ngClass]="{ 'card__items__item--active': item.active }"
+          >{{ item.value }}</span
+        >
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container" [ngStyle]="{ 'background-color': cardData.color }">
+  <div class="card">
+    <div class="card__header">
+      <h3 class="card__header--title">
+        {{ cardData.tittle }}
+      </h3>
+      <span class="material-symbols-outlined card__header--icon">
+        more_horiz
+      </span>
+    </div>
+    <div class="card__body">
+      <span class="card__body--text"
+        >{{ cardData.total }}{{ cardData.currency }}</span
+      >
+      <div class="card__body__state">
+        <span class="card__body__state--disc">
+          {{ cardData.disc }}
+        </span>
+        <div class="card__body__state--type">
+          <span>{{ cardData.statsType }}</span>
+          <span>{{ cardData.statsAmount }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
